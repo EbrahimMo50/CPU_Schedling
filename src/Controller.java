@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import GUIPack.GUI;
+
 public class Controller {
     private int countProcess;
     private List<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>(); 
@@ -51,6 +53,6 @@ public class Controller {
     }
 
     public void representInGUI(){
-
+        new GUI(result);
     }
 }

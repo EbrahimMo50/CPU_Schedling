@@ -8,7 +8,7 @@ public class GUI {
     private Frame frame;
 
     public GUI(List<ArrayList<Integer>> result){
-        panel = new Panel();
+        panel = new Panel(result);
         frame = new Frame(panel);
     }
 }
