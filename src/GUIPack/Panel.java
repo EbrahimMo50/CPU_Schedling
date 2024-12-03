@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
+import Main.Process;
 
 public class Panel extends JPanel{
     private int width = 1400;
@@ -14,12 +15,14 @@ public class Panel extends JPanel{
     private Dimension frameSize = new Dimension(width,height+100);
 
     private List<ArrayList<Integer>> matrix;
+    private List<Process> processes;
     private int rawHeight;
     private int unitHeight;
     private int heightOffSet;
     private int unitWidth;
 
-    public Panel(List<ArrayList<Integer>> matrix){
+    public Panel(List<ArrayList<Integer>> matrix, List<Process> processes){
+        this.processes = processes;
         System.out.println(matrix.get(0).size());
         System.out.println(matrix.size());
         unitWidth = (int)((width/matrix.get(0).size())*0.9);
@@ -51,6 +54,7 @@ public class Panel extends JPanel{
         for(int i = 0; matrix.size() > i ;++i){
             for(int j = 1; matrix.get(0).size() > j ;++j){
                 if(matrix.get(i).get(j) == 1){
+                    g.setColor(processes.get(i).color);
                     g.fillRect((int)((unitWidth * 0.2) + unitWidth*(j-1)), rawHeight*(i+1) - unitHeight/2 , unitWidth, unitHeight);
                 }
             }

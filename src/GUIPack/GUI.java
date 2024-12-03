@@ -2,14 +2,14 @@ package GUIPack;
 
 import java.util.ArrayList;
 import java.util.List;
+import Main.Process;
 
 public class GUI {
     private Panel panel;
-    private Frame frame;
 
-    public GUI(List<ArrayList<Integer>> result){
-        panel = new Panel(result);
-        frame = new Frame(panel);
+    public GUI(List<ArrayList<Integer>> result, List<Process> processes){
+        panel = new Panel(result,processes);
+        new Frame(panel);
     }
 }
 

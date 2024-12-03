@@ -1,3 +1,4 @@
+package Main;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -36,6 +37,10 @@ public class Controller {
         }
     }
 
+    private void menu(){
+
+    }
+    
     public void prioritySchdule(){
 
     }
@@ -53,6 +58,6 @@ public class Controller {
     }
 
     public void representInGUI(){
-        new GUI(result);
+        new GUI(result,processes);
     }
 }

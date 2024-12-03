@@ -1,4 +1,7 @@
+package Main;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Process {
@@ -25,5 +28,24 @@ public class Process {
 
     public void setColor(int r,int g, int b){
         this.color = new Color(r,g,b);
+    }
+
+    //test releated
+    public static List<Process> generateRandomProcesses(int numProcesses) {
+        Random random = new Random();
+        List<Process> processes = new ArrayList<>();
+
+        for (int i = 0; i < numProcesses; i++) {
+            String name = "Process " + (i + 1);
+            int arrivalTime = random.nextInt(10);
+            int burstTime = random.nextInt(10) + 1;
+            int priority = random.nextInt(5) + 1;
+            int quantum = random.nextInt(5) + 1;
+            Process process = new Process(name, arrivalTime, burstTime, priority, quantum);
+            process.setColor(random.nextInt(256), random.nextInt(256), random.nextInt(256));
+            processes.add(process);
+        }
+
+        return processes;
     }
 }
