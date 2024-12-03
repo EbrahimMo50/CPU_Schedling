@@ -1,8 +1,7 @@
 package GUIPack;
-
 import javax.swing.JFrame;
 
-public class Frame {
+public class Frame{
     private JFrame frame;
 
     public Frame(Panel panel){

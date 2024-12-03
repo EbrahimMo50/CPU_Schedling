@@ -1,6 +1,7 @@
 package Main;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -30,6 +31,14 @@ public class Process {
         this.color = new Color(r,g,b);
     }
 
+    //deep copy for manipulating
+    public Process clone(){
+        Process process = new Process(this.name, this.arrivalTime, this.burstTime, this.priority, this.quantum);
+        process.color = this.color;
+        process.id = this.id;
+        return process;
+    }
+
     //test releated
     public static List<Process> generateRandomProcesses(int numProcesses) {
         Random random = new Random();
@@ -42,10 +51,33 @@ public class Process {
             int priority = random.nextInt(5) + 1;
             int quantum = random.nextInt(5) + 1;
             Process process = new Process(name, arrivalTime, burstTime, priority, quantum);
-            process.setColor(random.nextInt(256), random.nextInt(256), random.nextInt(256));
             processes.add(process);
         }
 
         return processes;
+    }
+
+}
+
+//Comparators section
+
+class ArivalTimeComparator implements Comparator<Process>{
+    @Override
+    public int compare(Process o1, Process o2) {
+        return o1.arrivalTime - o2.arrivalTime;
+    }
+}
+
+class PriorityComparator implements Comparator<Process>{
+    @Override
+    public int compare(Process o1, Process o2) {
+        return o2.priority - o1.priority;
+    }
+}
+
+class ShortestJobComparator implements Comparator<Process>{
+    @Override
+    public int compare(Process o1, Process o2) {
+        return o1.burstTime - o2.burstTime;
     }
 }

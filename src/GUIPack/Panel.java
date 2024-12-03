@@ -18,18 +18,14 @@ public class Panel extends JPanel{
     private List<Process> processes;
     private int rawHeight;
     private int unitHeight;
-    private int heightOffSet;
     private int unitWidth;
 
     public Panel(List<ArrayList<Integer>> matrix, List<Process> processes){
         this.processes = processes;
-        System.out.println(matrix.get(0).size());
-        System.out.println(matrix.size());
         unitWidth = (int)((width/matrix.get(0).size())*0.9);
         rawHeight = height/matrix.size();    //left 10 precent for the id of the process
         
         unitHeight = (int)(rawHeight*0.9);
-        heightOffSet = (int)(rawHeight*0.1);
 
         this.matrix = matrix;
         setBackground(BGcolor);
